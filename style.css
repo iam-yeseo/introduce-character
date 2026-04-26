@@ -1,0 +1,221 @@
+/* 기본 설정: 박스 크기 계산을 쉽게 통일 */
+* {
+  box-sizing: border-box;
+}
+
+/* 페이지 전체 기본 스타일 */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: #4a4a4a;
+  background-color: #fffdf8;
+}
+
+/* 이미지가 없어도 레이아웃 유지 + 꽉 채우기 */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 공통 너비 제한: PC에서 최대 1280px */
+.container {
+  width: min(100% - 2rem, 1280px);
+  margin: 0 auto;
+}
+
+/* 상단 헤더 영역 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fff7f2;
+  border-bottom: 1px solid #f0e3dc;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ff7f7f;
+}
+
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #666;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background-color: #fff;
+  border: 1px solid #f2e1da;
+}
+
+.main-menu a:hover {
+  background-color: #ffece3;
+}
+
+/* 메인 비주얼 영역 */
+.main-visual {
+  background: linear-gradient(135deg, #fff5d9, #ffe7ee, #e8f7ff);
+  padding: 4rem 0;
+}
+
+.visual-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.visual-tag {
+  margin: 0;
+  font-weight: 700;
+  color: #ff8da1;
+}
+
+.visual-text h2 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+  color: #555;
+}
+
+.visual-text p {
+  margin: 0;
+}
+
+.visual-image-placeholder {
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  border: 2px dashed #efcdd1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 공통 섹션 여백 */
+.content-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 1.9rem;
+  color: #ff8a8a;
+}
+
+/* 세계관 소개 카드 */
+.story-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.4rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* 캐릭터 카드 배치 */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.character-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  aspect-ratio: 1 / 1;
+  background-color: #f8f8f8;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: #575757;
+}
+
+.character-quote {
+  margin: 0 0 0.8rem;
+  font-weight: 700;
+  color: #ff9aa9;
+}
+
+/* 굿즈 카드 배치: 기본 4열 */
+.goods-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.goods-card {
+  background-color: #fff;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 1 / 1;
+}
+
+/* 푸터 */
+.site-footer {
+  padding: 1.8rem 0;
+  background-color: #fff4ef;
+  border-top: 1px solid #f0e3dc;
+  text-align: center;
+  color: #777;
+}
+
+/* 태블릿 대응 */
+@media (max-width: 960px) {
+  .visual-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .goods-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 모바일 대응 */
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-section {
+    padding: 3rem 0;
+  }
+
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .goods-grid {
+    grid-template-columns: 1fr;
+  }
+}
